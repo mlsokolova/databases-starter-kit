@@ -19,11 +19,11 @@ minikube start --extra-config=apiserver.service-node-port-range=3000-61616 --mou
 ./kubectl apply -f scylla/deployment.yaml;  
 ```  
 ```
-`minikube` and `kubectl` cheatsheet:  
+minikube` and `kubectl` cheatsheet:  
 ```
-#Log into the minikube environment
-minikube ssh
-#describe pod
-./kubectl describe pods -n scylla
+#Log into the minikube environment  
+minikube ssh  
+#describe pod  
+./kubectl describe pods -n scylla  
 ```
 
