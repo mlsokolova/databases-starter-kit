@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: scylla
+  namespace: scylla
+spec:
+  type: NodePort
+  ports:
+    - name: client-port
+      port: 9042
+      nodePort: 9042
+      protocol: TCP
+  selector:
+      app: scylla

@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: scylladb
+ namespace: scylla
+ labels:
+  app: scylla
+spec:
+ replicas: 1
+ selector:
+  matchLabels:
+   app: scylla
+ template:
+  metadata:
+   labels:
+    app: scylla
+  spec:
+   containers:
+   - name: scylladb
+     image: scylladb/scylla
+     ports:
+     - containerPort: 9042
+     - containerPort: 9160
+     volumeMounts:
+     - name: scylla-runtime
+       mountPath: /var/lib/scylla
+   volumes:
+     - name: scylla-runtime
+       hostPath:
+        path: /scylla-runtime
+        type: Directory
