@@ -28,5 +28,5 @@ spec:
    volumes:
      - name: scylla-runtime
        hostPath:
-        path: /scylla-runtime
+        path: /db-runtime/scylla
         type: Directory

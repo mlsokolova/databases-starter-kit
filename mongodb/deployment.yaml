@@ -1,0 +1,58 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: mongodb
+ namespace: mongodb
+ labels:
+  app: mongodb
+spec:
+ replicas: 1
+ selector:
+  matchLabels:
+   app: mongodb
+ template:
+  metadata:
+   labels:
+    app: mongodb
+  spec:
+   containers:
+   - name: mongodb
+     image: mongo
+     ports:
+      - containerPort: 27017
+     volumeMounts:
+      - name: mongodb-runtime
+        mountPath: /data/db
+   volumes:
+    - name: mongodb-runtime
+      hostPath:
+        path: /db-runtime/mongodb
+        type: Directory
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-express
+  namespace: mongodb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo-express
+  template:
+    metadata:
+      labels:
+        app: mongo-express
+    spec:
+      containers:
+        - name: mongo-express
+          image: mongo-express
+          ports:
+            - containerPort: 8081
+          env:
+           - name: ME_CONFIG_MONGODB_SERVER
+             valueFrom: 
+              fieldRef:
+               fieldPath: status.hostIP
