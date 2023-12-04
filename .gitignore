@@ -1,3 +1,4 @@
 kubectl
 scylla/runtime
 gui-clients
+helm
