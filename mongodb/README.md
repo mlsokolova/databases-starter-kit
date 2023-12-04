@@ -14,7 +14,6 @@ Get exact pod name of Mongodb:
 ```
 mongodb_pod=`./kubectl get pods -n mongodb --selector app=mongodb --output jsonpath={.items[0].metadata.name};`
 ```  
-```
 Load some semi-structured json data to Mongo:  
 ```
 lshw -json|jq .children  | ./kubectl  -n mongodb -it exec $mongodb_pod -- mongoimport -d mydatabase -c mycollection --jsonArray  
