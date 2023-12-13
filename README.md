@@ -3,11 +3,12 @@ The world of databases very diverse.
 Here a zoopark under herding on minikube.  
 
 Folders:  
-- scilla: ScillaDB  
-  It's  database with the Cassandra architecture that rewrited from Java to C++  
+- scilla:  
+  ScillaDB: database with the Cassandra architecture that rewrited from Java to C++  
 - mongoDB
   Extremely popular NoSQL database  
-
+- MySQL  
+- PostgreSQL  
 Tools:
 - kubectl: https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux  
 
@@ -16,6 +17,7 @@ Howto run it:
 ```
 mkdir db-runtime/scylla;  
 mkdir db-runtime/mongodb;  
+mkdir db-runtime/postgres;
 minikube start --extra-config=apiserver.service-node-port-range=3000-61616 --mount --mount-string=$PWD/db-runtime:/db-runtime --alsologtostderr --v=8 --driver=docker ;  
 ./kubectl apply -f scylla/namespace.yaml;  
 ./kubectl get scylla/namespaces;  
