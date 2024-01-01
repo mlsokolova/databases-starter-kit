@@ -21,7 +21,7 @@ cd spark/sbin
 ```
 5. Check Spark Web UI URL  
 `http://localhost:8080/`
-6. Run minikube cluster with PostgreSQL  
+6. Run minikube cluster with PostgreSQL [see here](https://github.com/mlsokolova/databases-starter-kit/tree/main/postgres#readme)  
 7. Run TCP socket  
 `nc -lk --broker 9999`
 8. Set $POSTGRES_PASSWORD environment variable  
