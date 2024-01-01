@@ -1,5 +1,6 @@
-run mongodb:  
+Run on mikikube:  
 ```
+mkdir db-runtime/mongodb; 
 ./kubectl apply -f mongodb/namespace.yaml;  
 ./kubectl apply -f mongodb/service.yaml  
 ./kubectl apply -f mongodb/deployment.yaml  

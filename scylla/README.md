@@ -1,3 +1,10 @@
+Run on minikube:  
+```
+mkdir db-runtime/scylla;  
+./kubectl apply -f scylla/namespace.yaml;  
+./kubectl apply -f scylla/service.yaml;  
+./kubectl apply -f scylla/deployment.yaml; 
+```
 GUI Tool for ScyllaDB:  
 - dbeaver ce: https://dbeaver.io/download/ plus Cassandra JDBC Wrapper https://github.com/ing-bank/cassandra-jdbc-wrapper/releases  
   Cassandra driver is added using Driver Manager:  
